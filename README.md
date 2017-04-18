@@ -1,6 +1,6 @@
 # Ejemplo Heladeria
 
-<img src="https://cloud.githubusercontent.com/assets/4549002/25146661/10c0a8ec-244b-11e7-9d7e-34bda327bb33.png" height="233" width="200"/>
+<img src="https://cloud.githubusercontent.com/assets/4549002/25146661/10c0a8ec-244b-11e7-9d7e-34bda327bb33.png" height="200" width="233"/>
 
 [![Build Status](https://travis-ci.org/uqbar-project/eg-heladeria-hibernate-xtend.svg?branch=master)](https://travis-ci.org/uqbar-project/eg-heladeria-hibernate-xtend) 
 
@@ -12,3 +12,7 @@ Ejemplo que muestra
 * el uso de dos sesiones permanentemente abiertas en la aplicación (se abandona solo cuando la aplicación de Arena se detiene. TODO: Debería forzarse el cierre de las sesiones al finalizar la aplicación)
 * técnicamente, hay una sesión por cada repositorio
 * la aplicación Arena hace una búsqueda y permite la edición de tres heladerías cargadas en el bootstrap
+* para mostrar los gustos, la heladería transforma el mapa en una lista de gustos, a través del método Heladería>>gustosQueOfrece()
+* para eliminar un gusto, la aplicación hace algo sucio (separa los valores y obtiene el gusto)
+
+
