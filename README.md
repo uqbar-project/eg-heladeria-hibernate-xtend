@@ -2,6 +2,8 @@
 
 <img src="https://cloud.githubusercontent.com/assets/4549002/25146661/10c0a8ec-244b-11e7-9d7e-34bda327bb33.png" height="200" width="233"/>
 
+[!demo](video/demo.gif)
+
 [![Build Status](https://travis-ci.org/uqbar-project/eg-heladeria-hibernate-xtend.svg?branch=master)](https://travis-ci.org/uqbar-project/eg-heladeria-hibernate-xtend) 
 
 Ejemplo que muestra 
