@@ -1,15 +1,16 @@
 package ar.edu.heladeria.repos
 
 import ar.edu.heladeria.domain.Duenio
-import org.hibernate.Criteria
-import org.hibernate.criterion.Restrictions
+import javax.persistence.criteria.CriteriaBuilder
+import javax.persistence.criteria.CriteriaQuery
+import javax.persistence.criteria.Root
 
 class RepoDuenios extends AbstractRepoSQL<Duenio> {
 	
 	static RepoDuenios instance
 	
 	static def getInstance() {
-		if (instance == null) {
+		if (instance === null) {
 			instance = new RepoDuenios()
 		}
 		return instance
@@ -19,9 +20,9 @@ class RepoDuenios extends AbstractRepoSQL<Duenio> {
 		typeof(Duenio)
 	}
 	
-	override addCriteriaByExample(Duenio duenio, Criteria criteria) {
-		if (duenio.nombreCompleto != null) {
-			criteria.add(Restrictions.ilike("nombre", "%" + duenio.nombreCompleto + "%"))
+	override generateWhere(CriteriaBuilder criteria, CriteriaQuery<Duenio> query, Root<Duenio> camposDuenio, Duenio duenio) {
+		if (duenio.nombreCompleto !== null) {
+			query.where(criteria.like(camposDuenio.get("nombre"), "%" + duenio.nombreCompleto + "%"))
 		}
 	}
 	

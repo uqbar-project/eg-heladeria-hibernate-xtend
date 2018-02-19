@@ -4,8 +4,8 @@ import ar.edu.heladeria.domain.Heladeria
 import ar.edu.heladeria.repos.RepoHeladeria
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.utils.Dependencies
-import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.annotations.Dependencies
+import org.uqbar.commons.model.annotations.Observable
 
 @Observable
 @Accessors
@@ -21,7 +21,7 @@ class ListaHeladerias {
 	
 	@Dependencies("heladeriaSeleccionada")
 	def boolean getPuedeEditarHeladeria() {
-		heladeriaSeleccionada != null
+		heladeriaSeleccionada !== null
 	}
 	
 }

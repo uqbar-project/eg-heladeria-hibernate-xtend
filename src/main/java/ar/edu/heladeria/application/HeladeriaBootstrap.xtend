@@ -53,7 +53,7 @@ class HeladeriaBootstrap implements Bootstrap {
 	}
 
 	override isPending() {
-		false
+		true
 	}
 
 }

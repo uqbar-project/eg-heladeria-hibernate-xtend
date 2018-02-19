@@ -16,5 +16,5 @@ Ejemplo que muestra
 * la aplicación Arena hace una búsqueda y permite la edición de tres heladerías cargadas en el bootstrap
 * para mostrar los gustos, la heladería transforma el mapa en una lista de gustos, a través del método Heladería>>gustosQueOfrece()
 * para eliminar un gusto, la aplicación hace algo sucio (separa los valores y obtiene el gusto)
-
+* utiliza el criteria JPA
  

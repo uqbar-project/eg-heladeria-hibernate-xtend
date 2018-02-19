@@ -51,6 +51,7 @@ class ListaHeladeriasWindow extends SimpleWindow<ListaHeladerias> {
 		val gridHeladerias = new Table(mainPanel, typeof(Heladeria)) => [
 			items <=> "heladerias"
 			value <=> "heladeriaSeleccionada"
+			numberVisibleRows = 7
 		]
 		
 		// Columnas

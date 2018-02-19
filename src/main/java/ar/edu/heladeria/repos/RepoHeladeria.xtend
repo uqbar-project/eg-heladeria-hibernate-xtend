@@ -1,16 +1,17 @@
 package ar.edu.heladeria.repos
 
 import ar.edu.heladeria.domain.Heladeria
-import org.hibernate.Criteria
-import org.hibernate.FetchMode
-import org.hibernate.criterion.Restrictions
+import javax.persistence.criteria.CriteriaBuilder
+import javax.persistence.criteria.CriteriaQuery
+import javax.persistence.criteria.JoinType
+import javax.persistence.criteria.Root
 
 class RepoHeladeria extends AbstractRepoSQL<Heladeria> {
 
 	static RepoHeladeria instance
 	
 	static def getInstance() {
-		if (instance == null) {
+		if (instance === null) {
 			instance = new RepoHeladeria()
 		}
 		return instance
@@ -20,21 +21,29 @@ class RepoHeladeria extends AbstractRepoSQL<Heladeria> {
 		typeof(Heladeria)
 	}
 
-	override addCriteriaByExample(Heladeria heladeria, Criteria criteria) {
-		if (heladeria.nombre != null) {
-			criteria.add(Restrictions.ilike("nombre", "%" + heladeria.nombre + "%"))
+	override generateWhere(CriteriaBuilder criteria, CriteriaQuery<Heladeria> query, Root<Heladeria> camposHeladeria, Heladeria heladeria) {
+		if (heladeria.nombre !== null) {
+			query.where(criteria.like(camposHeladeria.get("nombre"), "%" + heladeria.nombre + "%"))
 		}
 	}
 	
 	def Heladeria get(Long id) {
-		return session.createCriteria(typeof(Heladeria))
-				.setFetchMode("gustos", FetchMode.JOIN)
-				.add(Restrictions.idEq(id))
-				.uniqueResult() as Heladeria
+		val entityManager = this.entityManager
+		try {
+			val criteria = entityManager.criteriaBuilder
+			val query = criteria.createQuery(typeof(Heladeria))
+			val Root<Heladeria> from = query.from(Heladeria)
+			from.fetch("gustos", JoinType.INNER)
+			query
+				.select(from)
+				.where(criteria.equal(from.get("id"), id))
+			return entityManager.createQuery(query).singleResult
+		} finally {
+			entityManager.close
+		}
 	}
 	
 	def Heladeria get(Heladeria heladeria) {
-		session.evict(heladeria)
 		return get(heladeria.id)
 	}
 
