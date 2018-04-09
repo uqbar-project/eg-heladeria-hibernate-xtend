@@ -28,19 +28,14 @@ class RepoHeladeria extends AbstractRepoSQL<Heladeria> {
 	}
 	
 	def Heladeria get(Long id) {
-		val entityManager = this.entityManager
-		try {
-			val criteria = entityManager.criteriaBuilder
-			val query = criteria.createQuery(typeof(Heladeria))
-			val Root<Heladeria> from = query.from(Heladeria)
-			from.fetch("gustos", JoinType.INNER)
-			query
-				.select(from)
-				.where(criteria.equal(from.get("id"), id))
-			return entityManager.createQuery(query).singleResult
-		} finally {
-			entityManager.close
-		}
+		val criteria = entityManager.criteriaBuilder
+		val query = criteria.createQuery(typeof(Heladeria))
+		val Root<Heladeria> from = query.from(Heladeria)
+		from.fetch("gustos", JoinType.INNER)
+		query
+			.select(from)
+			.where(criteria.equal(from.get("id"), id))
+		return entityManager.createQuery(query).singleResult
 	}
 	
 	def Heladeria get(Heladeria heladeria) {
