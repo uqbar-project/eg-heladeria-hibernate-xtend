@@ -38,7 +38,10 @@ class Heladeria {
 	Duenio duenio
 
 	@ElementCollection
-	@CollectionTable(name="Gustos", joinColumns=@JoinColumn(name="heladeria_id"))
+	@CollectionTable(
+		name="Heladeria_Gustos", 
+		joinColumns=@JoinColumn(name="heladeria_id")
+	)
 	@Column(name="gustos")
 	Map<String, Integer> gustos
 		// el mapa se compone de gusto, dificultad
