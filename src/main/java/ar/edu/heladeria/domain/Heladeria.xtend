@@ -26,13 +26,13 @@ class Heladeria {
 
 	@Id
 	@GeneratedValue
-	private Long id
+	Long id
 
 	@Column(length=150)
-	private String nombre
+	String nombre
 
 	@Enumerated(EnumType.ORDINAL) // o EnumType.STRING
-	private TipoHeladeria tipoHeladeria
+	TipoHeladeria tipoHeladeria
 
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	Duenio duenio

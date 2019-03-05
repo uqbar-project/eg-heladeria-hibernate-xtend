@@ -14,10 +14,10 @@ class Duenio {
 	
 	@Id
 	@GeneratedValue
-	private Long id
+	Long id
 
 	@Column(length=150)
-	private String nombreCompleto
+	String nombreCompleto
 	
 	new() {	}
 	
