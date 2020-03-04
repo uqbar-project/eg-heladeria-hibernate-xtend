@@ -21,10 +21,6 @@ class Duenio {
 	
 	new() {	}
 	
-	new(String nombre) {
-		nombreCompleto = nombre
-	}
-	
 	override toString() {
 		nombreCompleto
 	}

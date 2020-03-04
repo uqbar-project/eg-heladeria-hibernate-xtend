@@ -104,7 +104,6 @@ class EditarHeladeriaDialog extends Dialog<EditarHeladeria> {
 			]
 		]
 		
-		
 		new Button(mainPanel) => [
 			caption = "Actualizar Heladería"
 			onClick [ | 

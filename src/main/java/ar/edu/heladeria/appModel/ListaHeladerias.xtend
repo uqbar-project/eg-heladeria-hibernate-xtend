@@ -16,7 +16,9 @@ class ListaHeladerias {
 	String nombreHeladeria
 	
 	def void buscar() {
-		heladerias = RepoHeladeria.instance.searchByExample(new Heladeria(nombreHeladeria))
+		heladerias = RepoHeladeria.instance.searchByExample(new Heladeria => [
+			nombre = nombreHeladeria
+		])
 	}
 	
 	@Dependencies("heladeriaSeleccionada")

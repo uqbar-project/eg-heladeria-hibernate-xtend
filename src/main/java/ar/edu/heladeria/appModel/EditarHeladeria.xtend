@@ -44,7 +44,9 @@ class EditarHeladeria {
 	}
 
 	def void agregarDuenio() {
-		heladeria.duenio = new Duenio(duenioNuevo)
+		heladeria.duenio = new Duenio => [
+			nombreCompleto = duenioNuevo
+		]
 		actualizar
 		duenioNuevo = ""
 		ObservableUtils.firePropertyChanged(this, "duenios", duenios)

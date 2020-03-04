@@ -50,10 +50,6 @@ class Heladeria {
 		gustos = newHashMap
 	}
 	
-	new(String nombre) {
-		this.nombre = nombre
-	}
-
 	def void validar() {
 		if (nombre === null || nombre.trim.equals("")) {
 			throw new UserException("Debe cargar el nombre")
