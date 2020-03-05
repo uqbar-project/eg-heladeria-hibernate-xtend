@@ -17,7 +17,7 @@ class RepoDuenios extends AbstractRepoSQL<Duenio> {
 	}
 	
 	override getEntityType() {
-		typeof(Duenio)
+		Duenio
 	}
 	
 	override generateWhere(CriteriaBuilder criteria, CriteriaQuery<Duenio> query, Root<Duenio> camposDuenio, Duenio duenio) {

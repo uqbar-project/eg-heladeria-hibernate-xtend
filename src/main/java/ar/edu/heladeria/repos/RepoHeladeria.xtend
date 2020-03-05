@@ -18,7 +18,7 @@ class RepoHeladeria extends AbstractRepoSQL<Heladeria> {
 	}
 		
 	override getEntityType() {
-		typeof(Heladeria)
+		Heladeria
 	}
 
 	override generateWhere(CriteriaBuilder criteria, CriteriaQuery<Heladeria> query, Root<Heladeria> camposHeladeria, Heladeria heladeria) {
@@ -29,7 +29,7 @@ class RepoHeladeria extends AbstractRepoSQL<Heladeria> {
 	
 	def Heladeria get(Long id) {
 		val criteria = entityManager.criteriaBuilder
-		val query = criteria.createQuery(typeof(Heladeria))
+		val query = criteria.createQuery(Heladeria)
 		val Root<Heladeria> from = query.from(Heladeria)
 		from.fetch("gustos", JoinType.INNER)
 		query
