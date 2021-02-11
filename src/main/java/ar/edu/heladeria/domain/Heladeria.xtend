@@ -53,7 +53,7 @@ class Heladeria {
 	}
 	
 	def void validar() {
-		if (nombre === null || nombre.trim.equals("")) {
+		if (nombre === null || nombre.trim.empty) {
 			throw new UserException("Debe cargar el nombre")
 		}
 		if (duenio === null) {
