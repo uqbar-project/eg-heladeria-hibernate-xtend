@@ -68,8 +68,8 @@ class Heladeria {
 		nombre
 	}
 
-	def agregarGusto(String gusto, int cantidad) {
-		gustos.put(gusto, cantidad)
+	def agregarGusto(String gusto, int dificultad) {
+		gustos.put(gusto, dificultad)
 		ObservableUtils.firePropertyChanged(this, "gustos", gustos)
 		ObservableUtils.firePropertyChanged(this, "gustosQueOfrece", gustosQueOfrece)
 	}
