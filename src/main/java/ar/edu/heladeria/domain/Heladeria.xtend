@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
+import javax.persistence.MapKeyColumn
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.annotations.Dependencies
 import org.uqbar.commons.model.annotations.Observable
@@ -42,7 +43,8 @@ class Heladeria {
 		name="Heladeria_Gustos", 
 		joinColumns=@JoinColumn(name="heladeria_id")
 	)
-	@Column(name="gustos")
+	@Column(name="dificultad")
+	@MapKeyColumn(name="gusto")
 	Map<String, Integer> gustos
 		// el mapa se compone de gusto, dificultad
 
@@ -51,7 +53,7 @@ class Heladeria {
 	}
 	
 	def void validar() {
-		if (nombre === null || nombre.trim.equals("")) {
+		if (nombre === null || nombre.trim.empty) {
 			throw new UserException("Debe cargar el nombre")
 		}
 		if (duenio === null) {
@@ -66,8 +68,8 @@ class Heladeria {
 		nombre
 	}
 
-	def agregarGusto(String gusto, int cantidad) {
-		gustos.put(gusto, cantidad)
+	def agregarGusto(String gusto, int dificultad) {
+		gustos.put(gusto, dificultad)
 		ObservableUtils.firePropertyChanged(this, "gustos", gustos)
 		ObservableUtils.firePropertyChanged(this, "gustosQueOfrece", gustosQueOfrece)
 	}
