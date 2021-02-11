@@ -10,13 +10,13 @@ import org.uqbar.arena.widgets.NumericField
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.RadioSelector
+import org.uqbar.arena.aop.windows.TransactionalDialog
 
-class EditarHeladeriaDialog extends Dialog<EditarHeladeria> {
+class EditarHeladeriaDialog extends TransactionalDialog<EditarHeladeria> {
 	
 	new(WindowOwner owner, EditarHeladeria model) {
 		super(owner, model)
